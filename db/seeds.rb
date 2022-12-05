@@ -10,12 +10,12 @@ puts "seeding"
 
 Job.destroy_all
 Recruiter.destroy_all
-
+Recruiter.create(name: "G6", password_digest: "password")
 10.times do
-    Job.create(company_name: Faker::Company.name,  title: Faker::Job.title, description: Faker::Lorem.paragraph, requirements: Faker::Lorem.paragraph)
+ Job.create(company_name: Faker::Company.name, title: Faker::Job.title, description: Faker::Lorem.paragraph, requirements: Faker::Lorem.paragraph, recruiter_id: Recruiter.first.id)
 end
 
-Recruiter.create(name: "G6",password_digest: "password" )
+
 
 
 puts "done seeding"
