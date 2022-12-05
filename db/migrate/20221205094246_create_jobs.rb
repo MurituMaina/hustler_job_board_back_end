@@ -5,6 +5,7 @@ class CreateJobs < ActiveRecord::Migration[7.0]
       t.string :title
       t.text :description
       t.text :requirements
+      t.belongs_to  :recruiter
 
       t.timestamps
     end
