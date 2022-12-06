@@ -8,4 +8,7 @@ class RecruitersController < ApplicationController
     recruiter = Recruiter.find(params[:id])
     render json: recruiter
   end
+  def create
+# re  
+  end
 end
