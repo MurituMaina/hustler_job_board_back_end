@@ -1,4 +1,6 @@
 class JobsController < ApplicationController
+  skip_before_action :authorize
+  #  , only:[:index]
   def index
     jobs = Job.all
     render json: jobs
@@ -9,8 +11,9 @@ class JobsController < ApplicationController
     render json: job
   end
 
-  def create 
-    job = find_job
+  def create
+    job = Job.create!(jobs_params,recruiter_id: 1)
+    # job = @loggeIn_recruiter.jobs.create!(jobs_params)
     render json: job, status: :created
   end
 
@@ -20,19 +23,20 @@ class JobsController < ApplicationController
     render json: jobs
   end
 
-  def destroy 
+  def destroy
     job = find_job
     job.destroy
     head :no_content, status: :no_content
   end
 
-  private 
+  private
 
-  def jobs_params 
-    params.permit(:company_name, :title, :description, :requirements, :recruiter_id)
+  def jobs_params
+    params.permit(:company, :title, :description)
+    # , :requirements, :recruiter_id
   end
 
-  def find_job 
-    job = Job.find(params[:id])
+  def find_job
+    Job.find(params[:id])
   end
 end
