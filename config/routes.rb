@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   resources :jobs
   post "/login", to: "sessions#create"
   post "/signup", to: "recruiters#create"
+  get "/me", to: "recruiters#show"
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Defines the root path route ("/")
