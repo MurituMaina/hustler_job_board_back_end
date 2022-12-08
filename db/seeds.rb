@@ -11,10 +11,11 @@ puts "seeding"
 Job.destroy_all
 Recruiter.destroy_all
 
-Recruiter.create(email: "vincentmaina0@gmail.com", password_digest: "password")
+Recruiter.create(email: "vincentmaina0@gmail.com", password: "password")
 
 10.times do
- Job.create(company_name: Faker::Company.name, title: Faker::Job.title, description: Faker::Lorem.paragraph, requirements: Faker::Lorem.paragraph, recruiter_id: Recruiter.first.id)
+ Job.create(company: Faker::Company.name, title: Faker::Job.title, description: Faker::Lorem.paragraph, recruiter_id: Recruiter.first.id)
+
 end
 
 

@@ -9,13 +9,12 @@
 # migrations use external dependencies or application code.
 #
 # It's strongly recommended that you check this file into your version control system.
-
+git 
 ActiveRecord::Schema[7.0].define(version: 2022_12_05_094602) do
   create_table "jobs", force: :cascade do |t|
-    t.string "company_name"
+    t.string "company"
     t.string "title"
     t.text "description"
-    t.text "requirements"
     t.integer "recruiter_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
