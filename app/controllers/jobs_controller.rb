@@ -3,7 +3,7 @@ class JobsController < ApplicationController
   #  , only:[:index]
   def index
     jobs = Job.all
-    render json: jobs
+    render json: jobs, status: :ok
   end
 
   def show
