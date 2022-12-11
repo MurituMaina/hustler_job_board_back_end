@@ -9,13 +9,16 @@
 # migrations use external dependencies or application code.
 #
 # It's strongly recommended that you check this file into your version control system.
-git 
+
 ActiveRecord::Schema[7.0].define(version: 2022_12_05_094602) do
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "jobs", force: :cascade do |t|
     t.string "company"
     t.string "title"
     t.text "description"
-    t.integer "recruiter_id"
+    t.bigint "recruiter_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["recruiter_id"], name: "index_jobs_on_recruiter_id"
